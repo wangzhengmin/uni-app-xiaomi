@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "guess-product": "/components/guessProduct"
+  }
+}

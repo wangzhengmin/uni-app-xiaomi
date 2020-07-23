@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "common-head": "/components/commonHead",
+    "guess-product": "/components/guessProduct"
+  }
+}

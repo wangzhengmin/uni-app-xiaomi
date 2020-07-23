@@ -1,0 +1,1 @@
+<view class="row common-head data-v-40e23bea"><view data-event-opts="{{[['tap',[['bac',['$event']]]]]}}" class="icon-left data-v-40e23bea" bindtap="__e"></view><text class="data-v-40e23bea">{{this.$props.title}}</text><navigator class="icon-search data-v-40e23bea" url="/pages/search/search"></navigator></view>
