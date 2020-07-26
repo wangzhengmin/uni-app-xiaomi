@@ -1,5 +1,11 @@
 <template>
 	<view class="details">
+		<view class="details-menu row justify-center" :style="{'opacity':opacity}">
+			<navigator open-type ="navigateBack" class="icon-left"></navigator>
+			<text class="active-menu">商品</text>
+			<text>评价</text>
+			<text>详情</text>
+		</view>
 		<view class="swiper-box">
 			<view class="swiper-num">{{swiperIndex+1}} / {{swiperList.length}}</view>
 			<swiper :circular="true" :autoplay="true" :interval="3000" :duration="1000" class="swiper" @change="swiperChange">
@@ -79,11 +85,11 @@
 		<!-- footer -->
 		<view class="footer row">
 				<view class="footer-nav col" @click="switchTab('/pages/index/index')">
-					<view class="icon-shouye iconfont"></view>
+					<view class="iconfont">&#xe63d;</view>
 					首页
 				</view>
 				<navigator class="footer-nav col">
-					<view class="icon-kefu iconfont"></view>
+					<view class="iconfont">&#xe646;</view>
 					客服
 				</navigator>
 				<view class="footer-nav col" @click="switchTab('/pages/cart/cart')">
@@ -102,23 +108,31 @@
 		data() {
 			return {
 				swiperList:[
-					{img:require('../../static/produc_swiper_01.jpg')},
-					{img:require('../../static/produc_swiper_02.jpg')},
-					{img:require('../../static/produc_swiper_03.jpg')},
-					{img:require('../../static/produc_swiper_04.jpg')},
-					{img:require('../../static/produc_swiper_05.jpg')},
-					{img:require('../../static/produc_swiper_06.jpg')}
+					{img:'../../static/produc_swiper_01.jpg'},
+					{img:'../../static/produc_swiper_02.jpg'},
+					{img:'../../static/produc_swiper_03.jpg'},
+					{img:'../../static/produc_swiper_04.jpg'},
+					{img:'../../static/produc_swiper_05.jpg'},
+					{img:'../../static/produc_swiper_06.jpg'}
 				],
 				swiperIndex:0,
 				guessProduct:[
-					{id:1,name:'米家驱蚊器 智能版',img:require('../../static/guess_product.jpg'),price:59,old_price:59},
-					{id:2,name:'米家驱蚊器 智能版',img:require('../../static/guess_product.jpg'),price:59,old_price:39},
-					{id:3,name:'米家驱蚊器 智能版',img:require('../../static/guess_product.jpg'),price:59,old_price:49}
-				]
+					{id:1,name:'米家驱蚊器 智能版',img:'/static/guess_product.jpg',price:59,old_price:59},
+					{id:2,name:'米家驱蚊器 智能版',img:'/static/guess_product.jpg',price:59,old_price:39},
+					{id:3,name:'米家驱蚊器 智能版',img:'/static/guess_product.jpg',price:59,old_price:49}
+				],
+				top:0,
+				opacity:0,
 			}
+			
 		},
 		components:{
 			'guess-product':guessProduct
+		},
+		mounted(){
+			const query = uni.createSelectorQuery().select('.swiper-box').boundingClientRect(data => {
+				 this.top= data.bottom-data.top;
+			}).exec();
 		},
 		methods: {
 			swiperChange(e){
@@ -130,6 +144,13 @@
 					url:url
 				})
 			}
+		},
+		onPageScroll(e){
+			if(e.scrollTop>this.top-100){
+				console.log(e.scrollTop);
+				console.log((this.top-e.scrollTop)%100)
+				this.opacity = 1-(this.top-e.scrollTop)%10;
+			}
 		}
 	}
 </script>
@@ -137,6 +158,54 @@
 <style lang='scss' scoped>
 	.details{
 		margin-bottom:100upx;
+		.details-menu{
+			position: fixed;
+			top:0;
+			left:0;
+			width:100%;
+			height:100upx;
+			z-index:999;
+			opacity: 0;
+			font-weight: 700;
+			font-size: 26upx;
+			background:#fff;
+			align-items: center;
+			transition: all .5s;
+			>text{
+				line-height: 60upx;
+				align-self: center;
+				box-sizing: border-box;
+				padding:20upx 0;
+				margin:0 20upx;
+			}
+			.icon-left{
+				position: absolute;
+				left:40upx;
+				top: 50%;
+				width: 24upx;
+				height: 24upx;
+				border-left: 1px solid currentColor;
+				border-top: 1px solid currentColor;
+				transform: translate3d(0,-50%,0) rotate(135deg);
+				-webkit-transform: translate3d(0,-50%,0) rotate(-45deg);
+			}
+			.active-menu{
+				color: #ff5934;
+				position: relative;
+				&::after{
+					content: "";
+					position: absolute;
+					bottom: 26upx;
+					left: 50%;
+					width: 26upx;
+					height: 4upx;
+					margin-left: -13upx;
+					background-color: #ff5934;
+					border-radius: 28%;
+					overflow: hidden;
+				}
+			}
+		}
 	}
 	.swiper-box{
 		position: relative;

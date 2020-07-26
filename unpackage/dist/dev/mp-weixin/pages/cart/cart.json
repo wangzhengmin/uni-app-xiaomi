@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "common-head": "/components/commonHead",
-    "guess-product": "/components/guessProduct"
+    "guess-like": "/components/guessLike",
+    "cart-product": "/components/cartProduct"
   }
 }

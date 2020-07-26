@@ -5,23 +5,9 @@ Vue.use(Vuex);
 import cart from './modules/cart.js';
 import product from './modules/product.js';
 
-const store = {
-	state:{
-		demo:''
-	},
-	getters:{
-		
-	},
-	mutations:{
-		
-	},
-	actions:{
-		
-	},
+export default new Vuex.Store({
 	modules:{
 		cart,
 		product
-	}
-}
-
-export default store;
+	}	
+})

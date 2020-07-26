@@ -1,29 +1,34 @@
 <template>
 	<view class="row common-head">
-		<view class="icon-left" @click="bac"></view>
-		<text>{{this.$props.title}}</text>
-		<navigator url="/pages/search/search" class="icon-search"></navigator>
+		<navigator open-type ="navigateBack" class="icon-left"></navigator>
+		<text v-if="!$props.search">{{this.$props.title}}</text>
+		<view class="search-box">
+			<input type="text" value="" v-model="keyword" v-if="$props.search" class="search" placeholder="搜索商品名称"/>
+			<view class="icon-guanbi iconfont" v-show="keyword!=''" @click="keyword=''"></view>
+		</view>
+		<navigator url="/pages/search/search" class="icon-search" v-if="!$props.search"></navigator>
+		<view class="icon-search" v-if="$props.search" @click="$emit('search',keyword)"></view>
 	</view>
 </template>
 
 <script>
 	export default {
+		name:'common-head',
 		data() {
 			return {
-				
+				keyword:''
 			};
+		},
+		onShow(){
+			this.keyword = '';
 		},
 		props:{
 			title:{
-				required:true,
-				type:String
-			}
-		},
-		methods:{
-			bac(){
-				var pages = getCurrentPages();
-				console.log(pages);
-				uni.navigateBack()
+				type:String,
+			},
+			search:{
+				type:Boolean,
+				default:false
 			}
 		}
 	}
@@ -40,6 +45,7 @@
 	line-height: 100upx;
 	background:rgb(242, 242, 242);
 	justify-content: center;
+	z-index:999;
 	.icon-left{
 		position: absolute;
 		left:40upx;
@@ -59,6 +65,25 @@
 		height:60upx;
 		background-image:url('../static/search.png');
 		background-size: contain;
+	}
+	.search-box{
+		position: relative;
+		align-self: center;
+	}
+	.search{
+		width:420upx;
+		height:70upx;
+		padding:0 60upx 0 40upx;
+		line-height: 70upx;
+		background:#fff;
+	}
+	.icon-guanbi{
+		position: absolute;
+		top:50%;
+		right:10upx;
+		font-size:24upx;
+		color:#aaa;
+		transform: translate(0,-50%);
 	}
 }
 </style>

@@ -24,7 +24,11 @@
 		}
         ,{
             "path" : "pages/star/star",
-            "style" : {}
+            "style" : {
+				//#ifdef H5
+				"titleNView": false
+				//#endif
+			}
         }
         ,{
             "path" : "pages/user/user",
@@ -40,7 +44,9 @@
             "path" : "pages/cart/cart",
             "style" : {
 				"app-plus": {
+					//#ifdef H5
 					"titleNView": false
+					//#endif
 				}
 			}
         }
@@ -48,7 +54,9 @@
             "path" : "pages/productDetails/productDetails",
             "style" : {
 				"app-plus": {
+					//#ifdef H5
 					"titleNView": false
+					//#endif
 				}
 			}
         }
@@ -62,7 +70,25 @@
         }
         ,{
             "path" : "pages/search/search",
-            "style" : {}
+            "style" : {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+        }
+		,{
+		    "path" : "pages/searchResult/searchResult",
+		    "style" : {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		}
+        ,{
+            "path" : "pages/order/order",
+            "style" : {
+				"titleNView": false
+			}
         }
     ],
 	"tabBar":{

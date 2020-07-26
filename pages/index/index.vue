@@ -4,14 +4,14 @@
 		<view class="header">
 			<view class="header-top row">
 				<view class="icon-logo"></view>
-				<view class="search-box row">
+				<navigator class="search-box row" url="/pages/search/search">
 					<view class="icon-search"></view>
 					搜索商品名称
-				</view>
+				</navigator>
 				<view class="icon-user"></view>
 			</view>
 			<view class="header-bottom">
-				<view class="icon-down iconfont"></view>
+				<view class="icon-downn iconfont">&#xe620;</view>
 				<scroll-view class="menu-list row" scroll-x="true">
 					<view class="row">
 						<navigator>推荐</navigator>
@@ -95,7 +95,7 @@
 					<image :src="product.item_img" mode="widthFix" class="sort-img" lazy-load></image>
 				</view>
 				<view class="sort-product-list row-wrap">
-					<navigator class="sort-product-item" v-for="item in product.list" :key="item.pid">
+					<navigator class="sort-product-item" v-for="item in product.list" :key="item.pid" url="/pages/productDetails/productDetails">
 						<view>
 							<image :src="item.img" mode="widthFix" class="product-img" lazy-load></image>
 						</view>
@@ -123,32 +123,32 @@
 					{
 						id:1,item:'小米手机',item_img:require('../../static/sort_item.webp'),list:[
 							 {
-								pid:1,name: '小米10 Pro', des: '骁龙865 / 50倍变焦', price:2554,old_price:2554,img:require('../../static/product.jpg')
+								pid:1,name: '小米10 Pro', des: '骁龙865 / 50倍变焦', price:2554,old_price:2554,img:'../../static/product.jpg'
 							},
 							{
-								pid:2,name: '小米10 Pro', des: '骁龙865 / 50倍变焦', price:2554,old_price:2554,img:require('../../static/product.jpg')
+								pid:2,name: '小米10 Pro', des: '骁龙865 / 50倍变焦', price:2554,old_price:2554,img:'../../static/product.jpg'
 							},
 							{
-								pid:3,name: '小米10 Pro', des: '骁龙865 / 50倍变焦', price:2554,old_price:2554,img:require('../../static/product.jpg')
+								pid:3,name: '小米10 Pro', des: '骁龙865 / 50倍变焦', price:2554,old_price:2554,img:'../../static/product.jpg'
 							},
 							{
-								pid:4,name: '小米10 Pro', des: '骁龙865 / 50倍变焦', price:2554,old_price:2554,img:require('../../static/product.jpg')
+								pid:4,name: '小米10 Pro', des: '骁龙865 / 50倍变焦', price:2554,old_price:2554,img:'../../static/product.jpg'
 							},
 					    ]
 					},
 					{
 					    id:2,item:'小米手机',item_img:require('../../static/sort_item.webp'),list:[
 							{
-								pid:5,name: '小米10 Pro', des: '骁龙865 / 50倍变焦', price:2554,old_price:2554,img:require('../../static/product.jpg')
+								pid:5,name: '小米10 Pro', des: '骁龙865 / 50倍变焦', price:2554,old_price:2554,img:'../../static/product.jpg'
 							},
 							{
-								pid:6,name: '小米10 Pro', des: '骁龙865 / 50倍变焦', price:2554,old_price:2554,img:require('../../static/product.jpg')
+								pid:6,name: '小米10 Pro', des: '骁龙865 / 50倍变焦', price:2554,old_price:2554,img:'../../static/product.jpg'
 							},
 							{
-								pid:7,name: '小米10 Pro', des: '骁龙865 / 50倍变焦', price:2554,old_price:2554,img:require('../../static/product.jpg')
+								pid:7,name: '小米10 Pro', des: '骁龙865 / 50倍变焦', price:2554,old_price:2554,img:'../../static/product.jpg'
 							},
 							{
-								pid:8,name: '小米10 Pro', des: '骁龙865 / 50倍变焦', price:2554,old_price:2554,img:require('../../static/product.jpg')
+								pid:8,name: '小米10 Pro', des: '骁龙865 / 50倍变焦', price:2554,old_price:2554,img:'../../static/product.jpg'
 							},
 						],
 					}
@@ -224,7 +224,7 @@
 				}
 				
 			}
-			.icon-down{
+			.icon-downn{
 				width:120upx;
 				height:70upx;
 				line-height: 70upx;

@@ -20,6 +20,13 @@
       "unicode_decimal": 58941
     },
     {
+      "icon_id": "3092318",
+      "name": "删除",
+      "font_class": "shanchu",
+      "unicode": "e78d",
+      "unicode_decimal": 59277
+    },
+    {
       "icon_id": "4251740",
       "name": "客服",
       "font_class": "kefu",

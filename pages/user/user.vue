@@ -11,7 +11,7 @@
 		</view>
 		<view class="order row justify-space-between">
 			<view>我的订单</view>
-			<view>全部订单</view>
+			<navigator url="/pages/order/order">全部订单</navigator>
 		</view>
 		<view class="order-status row">
 			<navigator class="order-status-item col">

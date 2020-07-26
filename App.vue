@@ -16,4 +16,13 @@
 
 <style>
 	/*每个页面公共css */
+	/* #ifdef H5 */
+		::-webkit-scrollbar {
+		    display: none;  
+		    width: 0 !important;  
+		    height: 0 !important;  
+		    -webkit-appearance: none;  
+		    background: transparent;  
+		}
+	/* #endif */
 </style>

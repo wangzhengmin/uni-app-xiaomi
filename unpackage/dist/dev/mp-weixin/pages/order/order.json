@@ -1,0 +1,7 @@
+{
+  "titleNView": false,
+  "usingComponents": {
+    "common-head": "/components/commonHead",
+    "guess-like": "/components/guessLike"
+  }
+}

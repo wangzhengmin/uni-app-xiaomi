@@ -7,7 +7,9 @@
     "pages/cart/cart",
     "pages/productDetails/productDetails",
     "pages/login/login",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/searchResult/searchResult",
+    "pages/order/order"
   ],
   "subPackages": [],
   "window": {
@@ -53,5 +55,5 @@
   },
   "permission": {},
   "usingComponents": {},
-  "sitemapLocation": "sitemap22.json"
+  "sitemapLocation": "sitemap80.json"
 }

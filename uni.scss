@@ -105,6 +105,9 @@ a{
 	width:100%;
 	background:#f5f5f5;
 }
+.align-items-center{
+	align-items: center;
+}
 .right-after{
 	position: relative;
 	&::after{
@@ -120,12 +123,37 @@ a{
 		-webkit-transform: translate3d(0,-50%,0) rotate(135deg);
 	}
 }
-// @font-face {
-//   font-family: 'iconfont';
-//   src: url('./static/fonts/iconfont.eot');
-//   src: url('./static/fonts/iconfont.eot?#iefix') format('embedded-opentype'),
-//       url('./static/fonts/iconfont.woff2') format('woff2'),
-//       url('./static/fonts/iconfont.woff') format('woff'),
-//       url('./static/fonts/iconfont.ttf') format('truetype'),
-//       url('./static/fonts/iconfont.svg#iconfont') format('svg');
-// }
+/* #ifdef H5 */
+	.h5-container{
+		padding-top:100upx;
+	}
+	/* #endif */
+@font-face {
+  font-family: 'iconfont';
+  src: url('/static/fonts/iconfont.eot');
+  src: url('/static/fonts/iconfont.eot?#iefix') format('embedded-opentype'),
+      url('/static/fonts/iconfont.woff2') format('woff2'),
+      url('/static/fonts/iconfont.woff') format('woff'),
+      url('/static/fonts/iconfont.ttf') format('truetype'),
+      url('/static/fonts/iconfont.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.image-container{
+	width:100%;
+	>image{
+		width:100%;
+		height:auto;
+		object-fit: cover;
+	}
+}
+.img-cover{
+	width:100%;
+	height:auto;
+	object-fit: cover;
+}

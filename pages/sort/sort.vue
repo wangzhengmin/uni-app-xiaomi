@@ -1,5 +1,8 @@
 <template>
-	<view class="sort row">
+	<view class="sort row h5-container">
+		<!-- #ifdef H5 -->
+		<common-head title="分类"></common-head>
+		<!-- #endif -->
 		<view class="sort-left">
 			<scroll-view  :scroll-top="menuTop"scroll-y="true" show-scrollbar="true" class="scroll-box" >
 					<view v-for="m in navigationList" :key="m.id" :class="{'sort-item':true,'active-item':activeID==m.id}" :id="`menu-${m.id}`" @click="navigationClick(m.id)">{{m.content}}</view>
@@ -25,6 +28,8 @@
 </template>
 
 <script>
+import commonHead from '../../components/commonHead.vue';
+
 	export default {
 		data() {
 			return {
@@ -231,6 +236,9 @@
 				]
 			}
 		},
+		components:{
+			commonHead
+		},
 		methods: {
 			navigationClick(id){
 				this.activeID = id;
@@ -306,6 +314,9 @@
 		position: fixed;
 		left:0;
 		top:0;
+		/* # ifdef H5 */
+		top:100upx;
+		/* #endif */
 		flex:0 0 160upx;
 		width:160upx;
 		line-height: 100upx;
@@ -313,11 +324,12 @@
 		text-align:center;
 		.scroll-box{
 			/* #ifdef H5 */
-				height: calc(100vh - 100rpx - env(safe-area-inset-bottom) - var(--status-bar-height));
-				/* #endif */
-				/* #ifdef  MP */
-				height: 100vh;
-				/* #endif */
+			height: calc(100vh - 100rpx - env(safe-area-inset-bottom) - var(--status-bar-height));
+			/* #endif */
+			
+			/* #ifdef  MP */
+			height: 100vh;
+			/* #endif */
 		}
 		.sort-item{
 			transform: scale(0.8);
